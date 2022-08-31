@@ -478,7 +478,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422474805}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -1726,9 +1726,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6948da9c6744bda48bea7ed760770018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shellPrefab: {fileID: 6815142453692867405, guid: b495c505a73c7b543ba34d93460f9490, type: 3}
   target: {fileID: 1062881408}
   shellSpawn: {fileID: 309219177}
+--- !u!114 &1783958090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783958085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82001fba11307c4083c1f07c2bbb2d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shellSpawn: {fileID: 309219177}
+  shellPrefab: {fileID: 6815142453692867405, guid: b495c505a73c7b543ba34d93460f9490, type: 3}
 --- !u!850595691 &1822673415
 LightingSettings:
   m_ObjectHideFlags: 0

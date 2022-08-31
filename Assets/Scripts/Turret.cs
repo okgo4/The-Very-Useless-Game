@@ -5,31 +5,17 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject shellPrefab;
+   
     public GameObject target;
     public GameObject shellSpawn;
     float speed = 15;
-    void Start()
-    {
 
-    }
-    void fire()
-    {
-        GameObject shell = Instantiate(shellPrefab, shellSpawn.transform.position, shellSpawn.transform.rotation);
-        shell.GetComponent<Rigidbody>().velocity = speed * transform.forward;
-    }
+    
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            fire();
-        }
-
-
-        
         float? upAngle = calculateAngle();
-        Debug.Log(upAngle);
+        //Debug.Log(upAngle);
         float yAngle = 0;
         if(upAngle!= null)
         {
@@ -38,13 +24,6 @@ public class Turret : MonoBehaviour
         Vector3 direction = (target.transform.position - transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(new Vector3(direction.x, yAngle, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime);
-        
-        
-        //Debug.Log(upAngle);
-        //if (upAngle != null)
-        //{
-        //    transform.localEulerAngles = new Vector3((float)(360f - upAngle), 0, 0);
-        //}
     }
     float? calculateAngle()
     {
@@ -64,4 +43,5 @@ public class Turret : MonoBehaviour
         }
         return null;
     }
+    
 }
