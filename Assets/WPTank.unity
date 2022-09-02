@@ -1728,6 +1728,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1062881408}
   shellSpawn: {fileID: 309219177}
+  speed: 40
+  rotateSpeed: 20
 --- !u!114 &1783958090
 MonoBehaviour:
   m_ObjectHideFlags: 0

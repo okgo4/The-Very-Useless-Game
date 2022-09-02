@@ -5,18 +5,19 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     // Start is called before the first frame update
-   
+
     public GameObject target;
     public GameObject shellSpawn;
-    float speed = 15;
+    public float speed;
+    public float rotateSpeed = 20;
+    float yAngle = 0;
     Vector3 hitPosition = Vector3.zero;
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
-        
         if (Physics.Raycast(ray, out hitInfo))
         {
             GameObject hitObj = hitInfo.collider.gameObject;
@@ -26,7 +27,7 @@ public class Turret : MonoBehaviour
                 hitPosition = hitInfo.point;
             }
         }
-        float yAngle = 0;
+
         if (hitPosition != Vector3.zero)
         {
             float? upAngle = calculateAngle(hitPosition);
@@ -37,7 +38,7 @@ public class Turret : MonoBehaviour
         }
         Vector3 direction = (hitPosition - transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(new Vector3(direction.x, yAngle, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime*20);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
     }
     float? calculateAngle(Vector3 targetPos)
     {
@@ -52,8 +53,9 @@ public class Turret : MonoBehaviour
             float root = Mathf.Sqrt(squareRoot);
             //float highAngle = speedSqr + root;
             float lowAngle = speedSqr - root;
-            return (Mathf.Atan2(lowAngle, gravity * x) );
+            return (Mathf.Atan2(lowAngle, gravity * x));
         }
         return null;
+        
     }
 }

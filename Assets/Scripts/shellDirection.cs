@@ -8,9 +8,10 @@ public class shellDirection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GetComponent<Rigidbody>().velocity.magnitude > 0.7)
+        if(GetComponent<Rigidbody>().velocity.magnitude > 0.9)
         {
             transform.forward = GetComponent<Rigidbody>().velocity;
+            
         }
     }
 }

@@ -6,12 +6,12 @@ public class Shell : MonoBehaviour
 {
     public GameObject shellSpawn;
     public GameObject shellPrefab;
-    float speed = 15;
+    float speed;
     
     // Start is called before the first frame update
     void Start()
     {
-         
+        speed = GetComponent<Turret>().speed;
     }
 
     void fire()
