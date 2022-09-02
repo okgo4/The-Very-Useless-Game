@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 
-public class FollowPath : MonoBehaviour
+public class ControlTank : MonoBehaviour
 {
 
     public GameObject wpManager;
     GameObject[] wps;
     UnityEngine.AI.NavMeshAgent agent;
-
+    public float moveSpeed;
+    public float rotationSpeed;
     // Use this for initialization
     void Start()
     {
@@ -18,8 +19,8 @@ public class FollowPath : MonoBehaviour
     {
         float rh = Input.GetAxis("Horizontal");
         float rv = Input.GetAxis("Vertical");
-        transform.Translate(new Vector3(0, 0, rv) * Time.deltaTime * 5);
-        transform.Rotate(new Vector3(0, rh, 0) * Time.deltaTime * 40);
+        transform.Translate(new Vector3(0, 0, rv) * Time.deltaTime * moveSpeed);
+        transform.Rotate(new Vector3(0, rh, 0) * Time.deltaTime * rotationSpeed);
     }
     public void GoToHeli()
     {

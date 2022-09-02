@@ -36,6 +36,8 @@ public class Turret : MonoBehaviour
                 yAngle = (float)upAngle;
             }
         }
+        //Debug.Log(yAngle);               -0.1 ---- 0.3
+        yAngle = Mathf.Clamp(yAngle, -0.1f, 0.3f);
         Vector3 direction = (hitPosition - transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(new Vector3(direction.x, yAngle, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);

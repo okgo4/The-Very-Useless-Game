@@ -422,6 +422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wpManager: {fileID: 901304602}
+  moveSpeed: 8
+  rotationSpeed: 50
 --- !u!195 &327191823
 NavMeshAgent:
   m_ObjectHideFlags: 0
