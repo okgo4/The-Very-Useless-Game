@@ -12,13 +12,14 @@ public class FollowPath : MonoBehaviour
     {
         wps = wpManager.GetComponent<WPManager>().waypoints;
         agent = this.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        
     }
     void Update()
     {
         float rh = Input.GetAxis("Horizontal");
         float rv = Input.GetAxis("Vertical");
         transform.Translate(new Vector3(0, 0, rv) * Time.deltaTime * 5);
-        transform.Rotate(new Vector3(0, rh, 0) * Time.deltaTime * 20);
+        transform.Rotate(new Vector3(0, rh, 0) * Time.deltaTime * 40);
     }
     public void GoToHeli()
     {
