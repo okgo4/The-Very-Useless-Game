@@ -18,8 +18,8 @@ public class test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        yVel = yVel + gravity / mass * Time.deltaTime;
-
-        transform.Translate(0, yVel, 20 * Time.deltaTime);
+        
     }
+    
+
 }

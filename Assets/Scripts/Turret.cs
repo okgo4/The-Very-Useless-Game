@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public GameObject target;
     public GameObject shellSpawn;
     public float speed;
     public float rotateSpeed = 20;
     float yAngle = 0;
-    Vector3 hitPosition = Vector3.zero;
-
-    // Update is called once per frame
+    public Vector3 hitPosition = Vector3.zero;
+    public Vector3 hitNormal = Vector3.zero;
     void LateUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -25,6 +22,7 @@ public class Turret : MonoBehaviour
             if (temp.gameObject.name == "LevelArt")
             {
                 hitPosition = hitInfo.point;
+                hitNormal = hitInfo.normal;
             }
         }
 

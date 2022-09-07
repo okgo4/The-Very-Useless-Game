@@ -8,7 +8,6 @@ public class ControlTank : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     public float moveSpeed;
     public float rotationSpeed;
-    // Use this for initialization
     void Start()
     {
         wps = wpManager.GetComponent<WPManager>().waypoints;
@@ -30,11 +29,5 @@ public class ControlTank : MonoBehaviour
     public void GoToRuin()
     {
         agent.SetDestination(wps[0].transform.position);
-    }
-
-    // Update is called once per frame
-    void LateUpdate()
-    {
-
     }
 }
