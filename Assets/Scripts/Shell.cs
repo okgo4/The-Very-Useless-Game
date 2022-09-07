@@ -6,6 +6,7 @@ public class Shell : MonoBehaviour
 {
     public GameObject shellSpawn;
     public GameObject shellPrefab;
+    public GameObject recoilTank;
     float speed;
     void Start()
     {
@@ -15,7 +16,8 @@ public class Shell : MonoBehaviour
     {
         GameObject shell = Instantiate(shellPrefab, shellSpawn.transform.position, shellSpawn.transform.rotation);
         shell.GetComponent<Rigidbody>().velocity = speed * shellSpawn.transform.forward;
-        Destroy(shell, 5);
+        recoilTank.GetComponent<Rigidbody>().AddForce(-shellSpawn.transform.forward * 10,ForceMode.Impulse);
+        Destroy(shell, 4);
         
     }
     void Update()
