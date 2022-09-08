@@ -6,6 +6,9 @@ public class Turret : MonoBehaviour
 {
     public GameObject target;
     public GameObject shellSpawn;
+    public GameObject crosshair;
+    public Material inRange;
+    public Material outRange;
     public float speed;
     public float rotateSpeed = 20;
     float yAngle = 0;
@@ -33,6 +36,14 @@ public class Turret : MonoBehaviour
             {
                 yAngle = (float)upAngle;
             }
+        }
+        if (yAngle > 0.3 || yAngle < -0.1)
+        {
+            crosshair.GetComponent<MeshRenderer>().material = outRange;
+        }
+        else
+        {
+            crosshair.GetComponent<MeshRenderer>().material = inRange;
         }
         //Debug.Log(yAngle);               -0.1 ---- 0.3
         yAngle = Mathf.Clamp(yAngle, -0.1f, 0.3f);

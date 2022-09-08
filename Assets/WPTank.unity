@@ -1846,6 +1846,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1062881408}
   shellSpawn: {fileID: 309219177}
+  crosshair: {fileID: 162189581}
+  inRange: {fileID: 2100000, guid: 773dd8c87ea324fa69b08051df62d83b, type: 2}
+  outRange: {fileID: 2100000, guid: 5470b972618654519a85223ac6f98d57, type: 2}
   speed: 40
   rotateSpeed: 20
   hitPosition: {x: 0, y: 0, z: 0}
