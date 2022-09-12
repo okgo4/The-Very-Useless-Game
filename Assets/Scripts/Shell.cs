@@ -7,6 +7,8 @@ public class Shell : MonoBehaviour
     public GameObject shellSpawn;
     public GameObject shellPrefab;
     public GameObject recoilTank;
+    private float CD = 0;
+    public float coolDown;
     float speed;
     void Start()
     {
@@ -16,17 +18,26 @@ public class Shell : MonoBehaviour
     {
         GameObject shell = Instantiate(shellPrefab, shellSpawn.transform.position, shellSpawn.transform.rotation);
         shell.GetComponent<Rigidbody>().velocity = speed * shellSpawn.transform.forward;
-        recoilTank.GetComponent<Rigidbody>().AddForce(-shellSpawn.transform.forward * 10,ForceMode.Impulse);
+        Vector3 recoil = new Vector3(-shellSpawn.transform.forward.x, 0, -shellSpawn.transform.forward.z);
+        recoilTank.GetComponent<Rigidbody>().AddForce(recoil * 11, ForceMode.Impulse);
         Destroy(shell, 5);
-        
+
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            fire();
+            if (CD <= 0)
+            {
+                fire();
+                CD = coolDown;
+            }
+        }
+        if (CD > 0)
+        {
+            CD -= Time.deltaTime;
         }
     }
-   
+
 
 }
