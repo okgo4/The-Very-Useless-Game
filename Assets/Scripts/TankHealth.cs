@@ -10,6 +10,8 @@ public class TankHealth : MonoBehaviour
 
     private float healthScore = 100;
 
+    public AudioClip tankExplosionAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class TankHealth : MonoBehaviour
         {
             OnDeath();
             healthScore = 0;
+            AudioSource.PlayClipAtPoint(tankExplosionAudio,transform.position);
         }
     }
 
