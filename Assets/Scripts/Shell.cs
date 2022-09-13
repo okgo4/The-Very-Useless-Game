@@ -7,6 +7,7 @@ public class Shell : MonoBehaviour
     public GameObject shellSpawn;
     public GameObject shellPrefab;
     public GameObject recoilTank;
+    public float damage;
     float speed;
     void Start()
     {
