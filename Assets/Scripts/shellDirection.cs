@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class shellDirection : MonoBehaviour
 {
-
+    public float damage;
     // Update is called once per frame
     void Update()
     {
@@ -13,9 +13,19 @@ public class shellDirection : MonoBehaviour
             transform.forward = GetComponent<Rigidbody>().velocity;
             
         }
+        damage = GameObject.Find("Tank").gameObject.GetComponent<ControlTank>().damage;
     }
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyTankProperiy>().health -= damage;
+            
+        }
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<ControlTank>().health -= damage;
+        }
         Destroy(gameObject);
     }
 }
