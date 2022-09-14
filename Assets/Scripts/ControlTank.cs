@@ -13,6 +13,8 @@ public class ControlTank : MonoBehaviour
     public float moveSpeedAcc;
     public float accCount;
 
+    public AudioClip tankMove;
+
     void Start()
     {
         wps = wpManager.GetComponent<WPManager>().waypoints;
@@ -35,6 +37,10 @@ public class ControlTank : MonoBehaviour
 
         float rh = Input.GetAxis("Horizontal");
         float rv = Input.GetAxis("Vertical");
+        if (rh !=null || rv != null)
+        {
+            AudioSource.PlayClipAtPoint(tankMove, transform.position);
+        }
         transform.Translate(new Vector3(0, 0, rv) * Time.deltaTime * moveSpeed);
         transform.Rotate(new Vector3(0, rh, 0) * Time.deltaTime * rotationSpeed);
     }
