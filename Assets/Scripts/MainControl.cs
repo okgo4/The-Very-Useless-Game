@@ -13,7 +13,7 @@ public class MainControl : MonoBehaviour
     private bool end = false;
     void Start()
     {
-        gameTime = 12;
+        gameTime = 120;
         end = false;
         Time.timeScale = 1;
     }

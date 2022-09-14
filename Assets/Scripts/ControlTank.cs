@@ -29,14 +29,18 @@ public class ControlTank : MonoBehaviour
     void Start()
     {
         agent = this.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        health = 50;
+        health = 100;
     }
 
     void Update()
     {   
         // Update health to slider
         healthSlider.value = health;
-
+        if (health <= 0)
+        {
+            //Destroy(gameObject);
+            GameObject.Find("MainControl").GetComponent<MainControl>().endGame();
+        }
         // Acceleration Buff Counting
         if (accCount > 0)
         {
@@ -76,6 +80,7 @@ public class ControlTank : MonoBehaviour
         float rv = Input.GetAxis("Vertical");
         transform.Translate(new Vector3(0, 0, rv) * Time.deltaTime * moveSpeed);
         transform.Rotate(new Vector3(0, rh, 0) * Time.deltaTime * rotationSpeed);
+        
     }
 
 
