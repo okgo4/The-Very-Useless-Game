@@ -8,6 +8,7 @@ TagManager:
   - Accelerate
   - DamageUp
   - Iron
+  - Healing
   layers:
   - Default
   - TransparentFX
