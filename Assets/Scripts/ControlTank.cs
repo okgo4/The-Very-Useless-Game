@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ControlTank : MonoBehaviour
 {
@@ -8,19 +9,36 @@ public class ControlTank : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     public float moveSpeed;
     public float rotationSpeed;
+    public float damage;
+    public float health;
 
-    public float moveSpeedOri;
-    public float moveSpeedAcc;
+    [SerializeField]
+    private Slider healthSlider;
+    [SerializeField]
+    private float moveSpeedOri;
+    [SerializeField]
+    private float moveSpeedAcc;
+    [SerializeField]
+    private float dmgOri;
+    [SerializeField]
+    private float dmgUp;
+
     public float accCount;
+    public float dmgCount;
+    public float ironCount;
 
     void Start()
     {
         wps = wpManager.GetComponent<WPManager>().waypoints;
         agent = this.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        
+        health = 50;
     }
+
     void Update()
-    {
+    {   
+        // Update health to slider
+        healthSlider.value = health;
+
         // Acceleration Buff Counting
         if (accCount > 0)
         {
@@ -31,6 +49,29 @@ public class ControlTank : MonoBehaviour
         {
             moveSpeed = moveSpeedOri;
             accCount = 0;
+        }
+
+        // DamageUp Buff Counting
+        if (dmgCount > 0)
+        {
+            damage = dmgUp;
+            dmgCount -= Time.deltaTime;
+        }
+        else
+        {
+            damage = dmgOri;
+            dmgCount = 0;
+        }
+
+        // Iron Buff Counting
+        if (ironCount > 0)
+        {
+            health = 100;
+            ironCount -= Time.deltaTime;
+        }
+        else
+        {
+            ironCount = 0;
         }
 
         float rh = Input.GetAxis("Horizontal");
@@ -54,9 +95,25 @@ public class ControlTank : MonoBehaviour
         switch (other.tag)
         {
             case "Accelerate":
-                Destroy(other.gameObject);
-                accCount=15;
+                accCount=20;
+                break;
+
+            case "DamageUp":
+                dmgCount=20;
+                break;
+            
+            case "Iron":
+                ironCount=20;
+                break;
+            
+            case "Healing":
+                health = health + 50;
                 break;
         }
+    }
+
+    private void OnDeath()
+    {
+        Debug.Log("This tank is over.");
     }
 }

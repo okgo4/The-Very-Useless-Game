@@ -6,6 +6,9 @@ TagManager:
   tags:
   - wp
   - Accelerate
+  - DamageUp
+  - Iron
+  - Healing
   layers:
   - Default
   - TransparentFX
