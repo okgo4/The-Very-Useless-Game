@@ -38,6 +38,7 @@ public class Buff : MonoBehaviour
     {
         GameObject buff = Instantiate(buffPrefab);
         buff.transform.position = anchor.transform.position;
+        buff.transform.position += new Vector3(0, 1, 0);
         exist = true;
     }
 
