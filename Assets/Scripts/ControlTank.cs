@@ -27,8 +27,16 @@ public class ControlTank : MonoBehaviour
     public float timeCount;
 
     public AudioClip tankMove;
+    public AudioClip originalBgm;
+    public AudioClip ironBgm;
+    public AudioClip endBgm;
     public AudioSource backgroundMusic;
     public AudioSource tankState;
+    private float accPitch = 1.3f;
+
+    public Material ironSkyColor;
+    public Material normalSkyColor;
+
 
     void Start()
     {
@@ -44,17 +52,22 @@ public class ControlTank : MonoBehaviour
         {
             //Destroy(gameObject);
             GameObject.Find("MainControl").GetComponent<MainControl>().endGame();
+            backgroundMusic.Stop();
+            tankState.clip = endBgm;
+            tankState.Play();
         }
         // Acceleration Buff Counting
         if (accCount > 0)
         {
             moveSpeed = moveSpeedAcc;
             accCount -= Time.deltaTime;
+            backgroundMusic.pitch = accCount/20*(accPitch - 1);
         }
         else
         {
             moveSpeed = moveSpeedOri;
             accCount = 0;
+            backgroundMusic.pitch = 1;
         }
 
         // DamageUp Buff Counting
@@ -78,14 +91,19 @@ public class ControlTank : MonoBehaviour
         else
         {
             ironCount = 0;
+            if(backgroundMusic.clip != originalBgm){
+                backgroundMusic.clip = originalBgm;
+                backgroundMusic.Play();
+            }
+            RenderSettings.skybox = normalSkyColor;
         }
     
         float rh = Input.GetAxis("Horizontal");
         float rv = Input.GetAxis("Vertical");
-        if (rh !=null || rv != null)
+        if (rh !=0 || rv != 0)
         {
-           // tankState.clip = tankMove;
-            //tankState.Play();
+            tankState.clip = tankMove;
+            tankState.Play();
             // AudioSource.PlayClipAtPoint(tankMove, transform.position);
         }
         else
@@ -105,6 +123,7 @@ public class ControlTank : MonoBehaviour
         {
             case "Accelerate":
                 accCount=20;
+                backgroundMusic.pitch = accPitch;
                 break;
 
             case "DamageUp":
@@ -113,6 +132,9 @@ public class ControlTank : MonoBehaviour
             
             case "Iron":
                 ironCount=20;
+                backgroundMusic.clip = ironBgm;
+                backgroundMusic.Play();
+                RenderSettings.skybox = ironSkyColor;
                 break;
             case "Time":
                 GameObject.Find("MainControl").GetComponent<MainControl>().timeBuff(20);
