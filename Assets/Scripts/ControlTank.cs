@@ -27,6 +27,8 @@ public class ControlTank : MonoBehaviour
     public float ironCount;
 
     public AudioClip tankMove;
+    public AudioSource backgroundMusic;
+    public AudioSource tankState;
 
     void Start()
     {
@@ -82,7 +84,13 @@ public class ControlTank : MonoBehaviour
         float rv = Input.GetAxis("Vertical");
         if (rh !=null || rv != null)
         {
-            AudioSource.PlayClipAtPoint(tankMove, transform.position);
+           // tankState.clip = tankMove;
+            //tankState.Play();
+            // AudioSource.PlayClipAtPoint(tankMove, transform.position);
+        }
+        else
+        {
+            tankState.Stop();
         }
         transform.Translate(new Vector3(0, 0, rv) * Time.deltaTime * moveSpeed);
         transform.Rotate(new Vector3(0, rh, 0) * Time.deltaTime * rotationSpeed);
