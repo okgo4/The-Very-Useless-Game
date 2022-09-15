@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class ControlTank : MonoBehaviour
 {
 
-    public GameObject wpManager;
     UnityEngine.AI.NavMeshAgent agent;
     public float moveSpeed;
     public float rotationSpeed;
@@ -25,6 +24,7 @@ public class ControlTank : MonoBehaviour
     public float accCount;
     public float dmgCount;
     public float ironCount;
+    public float timeCount;
 
     public AudioClip tankMove;
     public AudioSource backgroundMusic;
@@ -79,7 +79,7 @@ public class ControlTank : MonoBehaviour
         {
             ironCount = 0;
         }
-
+    
         float rh = Input.GetAxis("Horizontal");
         float rv = Input.GetAxis("Vertical");
         if (rh !=null || rv != null)
@@ -114,7 +114,10 @@ public class ControlTank : MonoBehaviour
             case "Iron":
                 ironCount=20;
                 break;
-            
+            case "Time":
+                GameObject.Find("MainControl").GetComponent<MainControl>().timeBuff(20);
+                break;
+
             case "Healing":
                 health = health + 50;
                 break;

@@ -45,7 +45,7 @@ public class Buff : MonoBehaviour
     {
         if ((other.tag == "Player") && (exist == true))
         {
-            renewCount=45;
+            renewCount=15;
             exist=false;
         }
     }
