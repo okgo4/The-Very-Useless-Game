@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44504905, g: 0.49464136, b: 0.5737399, a: 1}
+  m_IndirectSpecularColor: {r: 0.44504833, g: 0.49464035, b: 0.57373774, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -969,7 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cea8faf60f84fe6a261990d9e747eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffPrefab: {fileID: 4156466623954495547, guid: 104b94e3d4d4743f19bbf778e97c11de,
+  buffPrefab: {fileID: 5572813507771252097, guid: aa8fc363d4c0e4b858dc3814d03aa0f9,
     type: 3}
   anchor: {fileID: 987594965}
   renewCount: 0
@@ -1126,7 +1126,6 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
-
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094147946}
   m_Enabled: 1
@@ -1893,7 +1892,7 @@ GameObject:
   - component: {fileID: 1730181717}
   m_Layer: 0
   m_Name: HealBuff
-  m_TagString: Healing
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1904,12 +1903,12 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746760783}
+  m_GameObject: {fileID: 1730181716}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5986809
-  m_Height: 2
+  m_Radius: 1
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1730181718
@@ -1924,7 +1923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cea8faf60f84fe6a261990d9e747eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffPrefab: {fileID: 655118146215847954, guid: 5bd1de2a9e50d405692a70273d827fb0,
+  buffPrefab: {fileID: 1388069850703941689, guid: 4dd297be387884ac9b90133fc20b2c75,
     type: 3}
   anchor: {fileID: 1730181716}
   renewCount: 0
@@ -1949,6 +1948,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: c58838a1d6c17484393fa08cdb7f059d, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c58838a1d6c17484393fa08cdb7f059d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2485,7 +2488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cea8faf60f84fe6a261990d9e747eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffPrefab: {fileID: 1416064535623791897, guid: 18313a49293da4882a45bfe6e8b6b75b,
+  buffPrefab: {fileID: 6399928577579667067, guid: 701240a4942b940e28747aa8ac2054d9,
     type: 3}
   anchor: {fileID: 1977108716}
   renewCount: 0
@@ -2547,7 +2550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cea8faf60f84fe6a261990d9e747eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffPrefab: {fileID: 5806003242266966060, guid: 3815fb66317d54bcb9598843e4376cd8,
+  buffPrefab: {fileID: 8864363597298403827, guid: 5a175f3a0ef484716acfef3ecc6a2046,
     type: 3}
   anchor: {fileID: 1995986541}
   renewCount: 0
