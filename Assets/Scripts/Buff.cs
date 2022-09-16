@@ -8,6 +8,13 @@ public class Buff : MonoBehaviour
     private GameObject buffPrefab;
     [SerializeField]
     private GameObject anchor;
+    [SerializeField]
+    private float initRenewCount;
+    [SerializeField]
+    private float maxRenewCount;
+    [SerializeField]
+    private float maxDisappearCount;
+
     private bool exist;
     public float renewCount;
     public float disappearCount;
@@ -16,8 +23,8 @@ public class Buff : MonoBehaviour
     void Start()
     {
         exist=false;
-        renewCount = 15;
-        disappearCount = 10;
+        renewCount = initRenewCount;
+        disappearCount = maxDisappearCount;
     }
 
     // Update is called once per frame
@@ -36,7 +43,7 @@ public class Buff : MonoBehaviour
             disappearCount -= Time.deltaTime;
             if (disappearCount <= 0)
             {   
-                renewCount=45;
+                renewCount=maxRenewCount;
                 exist = false;
                 disappearCount = 0;
             }
@@ -53,14 +60,14 @@ public class Buff : MonoBehaviour
         buff.transform.position = anchor.transform.position;
         buff.transform.position += new Vector3(0, 1, 0);
         exist = true;
-        disappearCount = 10;
+        disappearCount = maxDisappearCount;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if ((other.tag == "Player") && (exist == true))
         {
-            renewCount=45;
+            renewCount=maxRenewCount;
             exist=false;
         }
     }
