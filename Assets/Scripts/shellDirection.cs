@@ -28,6 +28,7 @@ public class shellDirection : MonoBehaviour
             collision.gameObject.GetComponent<ControlTank>().health -= damage;
         }
         Instantiate(smokePrefab, gameObject.transform.position, gameObject.transform.rotation);
+
         Destroy(gameObject);
     }
 }
