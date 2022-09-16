@@ -5,6 +5,7 @@ using UnityEngine;
 public class shellDirection : MonoBehaviour
 {
     public float damage;
+    public GameObject smokePrefab;
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +27,7 @@ public class shellDirection : MonoBehaviour
         {
             collision.gameObject.GetComponent<ControlTank>().health -= damage;
         }
+        GameObject smoke = Instantiate(smokePrefab, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(gameObject);
     }
 }
