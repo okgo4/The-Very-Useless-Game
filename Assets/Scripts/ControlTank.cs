@@ -32,8 +32,11 @@ public class ControlTank : MonoBehaviour
     public AudioClip originalBgm;
     public AudioClip ironBgm;
     public AudioClip endBgm;
+    public AudioClip buffBgm;
+    public AudioClip healBgm;
     public AudioSource backgroundMusic;
     public AudioSource tankState;
+    public AudioSource buffSE;
     private float accPitch = 1.3f;
 
     public Material ironSkyColor;
@@ -68,7 +71,7 @@ public class ControlTank : MonoBehaviour
         {
             moveSpeed = moveSpeedAcc;
             accCount -= Time.deltaTime;
-            backgroundMusic.pitch = accCount/20*(accPitch - 1);
+            backgroundMusic.pitch = accCount/20*(accPitch - 1)+1;
         }
         else
         {
@@ -130,15 +133,18 @@ public class ControlTank : MonoBehaviour
     // Buff System
     private void OnTriggerEnter(Collider other)
     {
+        buffSE.clip = buffBgm;
         switch (other.tag)
         {
             case "Accelerate":
                 accCount=20;
                 backgroundMusic.pitch = accPitch;
+                buffSE.Play();
                 break;
 
             case "DamageUp":
                 dmgCount=20;
+                buffSE.Play();
                 break;
             
             case "Iron":
@@ -149,10 +155,15 @@ public class ControlTank : MonoBehaviour
                 break;
             case "Time":
                 GameObject.Find("MainControl").GetComponent<MainControl>().timeBuff(20);
+                buffSE.Play();
                 break;
 
             case "Healing":
                 health = health + 50;
+                buffSE.clip = healBgm;
+                backgroundMusic.volume = 0.5f;
+                buffSE.Play();
+                backgroundMusic.volume = 1f;
                 break;
         }
     }
