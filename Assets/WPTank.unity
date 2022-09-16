@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29267168, g: 0.39802602, b: 0.58872235, a: 1}
+  m_IndirectSpecularColor: {r: 0.2926717, g: 0.39802602, b: 0.58872235, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -588,7 +588,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 327191820}
   m_Material: {fileID: 13400000, guid: 1dd7b703fea61a9418e89e051a6fc87a, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.55, y: 1.5020852, z: 2.1884854}
@@ -1105,6 +1105,12 @@ MonoBehaviour:
   endScale: {x: 0.5, y: 0.5, z: 0.5}
   scaleSpeed: 1
   scaleRate: 1.5
+--- !u!1 &678212094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2154588518368006396, guid: baf32e0d13c11f742b1433a4a43a387a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2154588519500051068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &987594965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2207,8 @@ MonoBehaviour:
   shellSpawn: {fileID: 309219177}
   shellPrefab: {fileID: 6815142453692867405, guid: b495c505a73c7b543ba34d93460f9490,
     type: 3}
-  smokePrefab: {fileID: 0}
+  smokePrefab: {fileID: 985483039366664255, guid: f91edac4d13fc4343ba96bb6a843ad05,
+    type: 3}
   recoilTank: {fileID: 327191820}
   shellSmoke: {fileID: 309219177}
   shellShot: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
@@ -2742,6 +2749,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1484205459}
     m_Modifications:
+    - target: {fileID: 2154588518309719376, guid: baf32e0d13c11f742b1433a4a43a387a,
+        type: 3}
+      propertyPath: shellShot
+      value: 
+      objectReference: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
+    - target: {fileID: 2154588518309719376, guid: baf32e0d13c11f742b1433a4a43a387a,
+        type: 3}
+      propertyPath: shellSmoke
+      value: 
+      objectReference: {fileID: 678212094}
+    - target: {fileID: 2154588518309719376, guid: baf32e0d13c11f742b1433a4a43a387a,
+        type: 3}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 985483039366664255, guid: f91edac4d13fc4343ba96bb6a843ad05,
+        type: 3}
+    - target: {fileID: 2154588518309719376, guid: baf32e0d13c11f742b1433a4a43a387a,
+        type: 3}
+      propertyPath: shellExplosion
+      value: 
+      objectReference: {fileID: 8300000, guid: 3061c7b9b32d894478e4126ccce25ca3, type: 3}
     - target: {fileID: 2154588518309719383, guid: baf32e0d13c11f742b1433a4a43a387a,
         type: 3}
       propertyPath: target

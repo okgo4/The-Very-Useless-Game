@@ -127,3 +127,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  smokePrefab: {fileID: 5797428246745224015, guid: 24fa55c4f1386e04ea2800527f88c4e1,
+    type: 3}
