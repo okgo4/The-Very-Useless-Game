@@ -150,7 +150,7 @@ public class Chase : State
 
     public override void Enter()
     {
-        Debug.Log("Enter Chase");
+        //Debug.Log("Enter Chase");
         GoneDistance = 500.0f;
         FireDistance = 200f;
         base.Enter();
@@ -161,7 +161,7 @@ public class Chase : State
         StartChase();
         if(IsEnemyGone())
         {
-            Debug.Log("Enter Patrol");
+            //Debug.Log("Enter Patrol");
             nextState = new Patrol(oppTank, agent, anim, player);
             stage = EVENT.EXIT;
             return;
