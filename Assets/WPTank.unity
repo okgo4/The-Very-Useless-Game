@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2926717, g: 0.39802602, b: 0.58872235, a: 1}
+  m_IndirectSpecularColor: {r: 0.29267168, g: 0.39802602, b: 0.58872235, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1007,6 +1007,7 @@ MonoBehaviour:
     type: 3}
   anchor: {fileID: 407134875}
   renewCount: 0
+  disappearCount: 0
 --- !u!1001 &410821207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1146,6 +1147,7 @@ MonoBehaviour:
     type: 3}
   anchor: {fileID: 987594965}
   renewCount: 0
+  disappearCount: 0
 --- !u!4 &987594967
 Transform:
   m_ObjectHideFlags: 0
@@ -1989,7 +1991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705579759
@@ -2101,6 +2103,7 @@ MonoBehaviour:
     type: 3}
   anchor: {fileID: 1730181716}
   renewCount: 0
+  disappearCount: 0
 --- !u!4 &1730181719
 Transform:
   m_ObjectHideFlags: 0
@@ -2667,6 +2670,7 @@ MonoBehaviour:
     type: 3}
   anchor: {fileID: 1977108716}
   renewCount: 0
+  disappearCount: 0
 --- !u!4 &1977108719
 Transform:
   m_ObjectHideFlags: 0
@@ -2729,6 +2733,7 @@ MonoBehaviour:
     type: 3}
   anchor: {fileID: 1995986541}
   renewCount: 0
+  disappearCount: 0
 --- !u!4 &1995986544
 Transform:
   m_ObjectHideFlags: 0
@@ -2972,6 +2977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tank_Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154588520289563072, guid: baf32e0d13c11f742b1433a4a43a387a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: baf32e0d13c11f742b1433a4a43a387a, type: 3}
