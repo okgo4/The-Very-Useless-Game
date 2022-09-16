@@ -71,7 +71,7 @@ public class ControlTank : MonoBehaviour
         {
             moveSpeed = moveSpeedAcc;
             accCount -= Time.deltaTime;
-            backgroundMusic.pitch = accCount/20*(accPitch - 1);
+            backgroundMusic.pitch = accCount/20*(accPitch - 1)+1;
         }
         else
         {
@@ -139,7 +139,6 @@ public class ControlTank : MonoBehaviour
             case "Accelerate":
                 accCount=20;
                 backgroundMusic.pitch = accPitch;
-                backgroundMusic.Play();
                 buffSE.Play();
                 break;
 
@@ -162,7 +161,9 @@ public class ControlTank : MonoBehaviour
             case "Healing":
                 health = health + 50;
                 buffSE.clip = healBgm;
+                backgroundMusic.volume = 0.5f;
                 buffSE.Play();
+                backgroundMusic.volume = 1f;
                 break;
         }
     }
