@@ -66,7 +66,7 @@ public class Patrol : State
     float viewDistance = 300.0f;
     float fieldOfViewAngle = 120.0f;
     public bool key = true;
-
+    int nexttarget = 0;
     public Patrol(GameObject _oppTank, NavMeshAgent _agent, Animator _anim, Transform _player)
                     : base(_oppTank, _agent, _anim, _player)
     {
@@ -84,7 +84,7 @@ public class Patrol : State
         if(IsCanSee())
         //if(Random.Range(0, 100) < 10)
         {
-            Debug.Log("start Chase");
+            //Debug.Log("start Chase");
             nextState = new Chase(oppTank, agent, anim, player);
             stage = EVENT.EXIT;
             //Debug.Log(stage);
@@ -117,20 +117,22 @@ public class Patrol : State
 
     void Patroling()
     {
+        
         if(key)
         {
             agent.SetDestination(GameEnv.Singleton.Wps[0].transform.position);
             key = false;
         }
         
-        if ((agent.transform.position - GameEnv.Singleton.Wps[4].transform.position).sqrMagnitude < 1*1)
+        if ((agent.transform.position - GameEnv.Singleton.Wps[nexttarget].transform.position).sqrMagnitude < 1*1)
         {
-            agent.SetDestination(GameEnv.Singleton.Wps[0].transform.position);
+            nexttarget = (nexttarget + 1) % 7;
+            agent.SetDestination(GameEnv.Singleton.Wps[nexttarget].transform.position);
         } 
-        if((agent.transform.position - GameEnv.Singleton.Wps[0].transform.position).sqrMagnitude < 1*1)
-        {
-            agent.SetDestination(GameEnv.Singleton.Wps[4].transform.position);
-        }
+        //if((agent.transform.position - GameEnv.Singleton.Wps[0].transform.position).sqrMagnitude < 1*1)
+        //{
+        //    agent.SetDestination(GameEnv.Singleton.Wps[4].transform.position);
+        //}
     }
 }
 
