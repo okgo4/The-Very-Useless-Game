@@ -9,7 +9,9 @@ public class ControlTank : MonoBehaviour
     public float rotationSpeed;
     public float damage;
     public float health;
-
+    public AudioSource endGame;
+    private bool dead = false;
+    
     [SerializeField]
     private Slider healthSlider;
     [SerializeField]
@@ -53,8 +55,13 @@ public class ControlTank : MonoBehaviour
             //Destroy(gameObject);
             GameObject.Find("MainControl").GetComponent<MainControl>().endGame();
             backgroundMusic.Stop();
-            tankState.clip = endBgm;
-            tankState.Play();
+            if(!dead)
+            {
+                endGame.Play();
+                dead = true;
+            }
+            //tankState.clip = endBgm;
+            //tankState.Play();
         }
         // Acceleration Buff Counting
         if (accCount > 0)
@@ -103,8 +110,12 @@ public class ControlTank : MonoBehaviour
         if (rh !=0 || rv != 0)
         {
             tankState.clip = tankMove;
-            tankState.Play();
-            // AudioSource.PlayClipAtPoint(tankMove, transform.position);
+            if (!tankState.isPlaying)
+            {
+                tankState.Play();
+            }
+           
+            
         }
         else
         {
