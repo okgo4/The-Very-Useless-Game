@@ -873,6 +873,8 @@ MonoBehaviour:
   rotationSpeed: 40
   health: 100
   score: 0
+  deathEffect: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7,
+    type: 3}
   healthSlider: {fileID: 3143077653965718752}
 --- !u!114 &3143077654690564970
 MonoBehaviour:
