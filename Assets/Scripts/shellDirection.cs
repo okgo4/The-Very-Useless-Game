@@ -12,9 +12,9 @@ public class shellDirection : MonoBehaviour
         if(GetComponent<Rigidbody>().velocity.magnitude > 0.9)
         {
             transform.forward = GetComponent<Rigidbody>().velocity;
-            
         }
-        damage = GameObject.Find("Tank").gameObject.GetComponent<ControlTank>().damage;
+        //Debug.Log(damage);
+        //damage = GameObject.Find("Tank").gameObject.GetComponent<ControlTank>().damage;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -28,7 +28,6 @@ public class shellDirection : MonoBehaviour
             collision.gameObject.GetComponent<ControlTank>().health -= damage;
         }
         Instantiate(smokePrefab, gameObject.transform.position, gameObject.transform.rotation);
-
         Destroy(gameObject);
     }
 }

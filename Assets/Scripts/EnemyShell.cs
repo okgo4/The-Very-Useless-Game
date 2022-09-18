@@ -9,6 +9,7 @@ public class EnemyShell : MonoBehaviour
     public GameObject smokePrefab;
     public GameObject recoilTank;
     public GameObject shellSmoke;
+    public float damage;
     public AudioClip shellShot;
     public AudioClip shellExplosion;
     public AudioSource shellSE;
@@ -27,6 +28,7 @@ public class EnemyShell : MonoBehaviour
         if(canFire)
         {
             GameObject shell = Instantiate(shellPrefab, shellSpawn.transform.position, shellSpawn.transform.rotation);
+            shell.GetComponent<shellDirection>().damage = damage;
             GameObject smoke = Instantiate(smokePrefab, shellSmoke.transform.position, shellSmoke.transform.rotation);
             shellSE.clip = shellShot;
             shellSE.Play();

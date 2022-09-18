@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     public Material inRange;
     public Material outRange;
     public float speed;
+  
     public float rotateSpeed = 20;
     float yAngle = 0;
     public Vector3 hitPosition = Vector3.zero;

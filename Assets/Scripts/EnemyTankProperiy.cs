@@ -8,16 +8,16 @@ public class EnemyTankProperiy : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     public float moveSpeed;
     public float rotationSpeed;
-    public float damage;
     public float health;
-
+    public float score;
+    
     [SerializeField]
     private Slider healthSlider;
 
     void Start()
     {
         agent = this.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        
+        score = health;
     }
 
     void Update()
@@ -27,6 +27,8 @@ public class EnemyTankProperiy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            GameObject.Find("MainControl").GetComponent<MainControl>().gameScore += score;
+            GameObject.Find("MainControl").GetComponent<MainControl>().refreshCD = 5;
         }
 
 

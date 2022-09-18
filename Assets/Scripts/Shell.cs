@@ -14,6 +14,7 @@ public class Shell : MonoBehaviour
     public AudioSource shellSE;
     private float CD = 0;
     public float coolDown;
+    public float damage;
     float speed;
     void Start()
     {
@@ -22,6 +23,7 @@ public class Shell : MonoBehaviour
     void fire()
     {
         GameObject shell = Instantiate(shellPrefab, shellSpawn.transform.position, shellSpawn.transform.rotation);
+        shell.GetComponent<shellDirection>().damage = damage;
         GameObject smoke = Instantiate(smokePrefab, shellSmoke.transform.position, shellSmoke.transform.rotation);
         shellSE.clip = shellShot;
         shellSE.Play();

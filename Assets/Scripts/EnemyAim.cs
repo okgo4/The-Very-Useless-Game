@@ -11,7 +11,7 @@ public class EnemyAim : MonoBehaviour
     float yAngle = 0;
     void LateUpdate()
     {
-
+        target = GameObject.Find("Tank");
 
         float? upAngle = calculateAngle(target.transform.position);
         if (upAngle != null)
