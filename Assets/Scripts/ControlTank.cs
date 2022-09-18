@@ -58,6 +58,7 @@ public class ControlTank : MonoBehaviour
             //Destroy(gameObject);
             GameObject.Find("MainControl").GetComponent<MainControl>().endGame();
             backgroundMusic.Stop();
+            tankState.Stop();
             if(!dead)
             {
                 endGame.Play();
