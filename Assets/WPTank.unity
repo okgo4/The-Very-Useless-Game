@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2926717, g: 0.39802602, b: 0.58872235, a: 1}
+  m_IndirectSpecularColor: {r: 0.29267168, g: 0.39802602, b: 0.58872235, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1771,7 +1771,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7782102, y: 1}
+    m_SensorSize: {x: 1.9630681, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3424,6 +3424,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6594659742808945922, guid: 906e3a86854cd434e98cc917869e5ebf,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7,
+        type: 3}
+    - target: {fileID: 6594659742838847128, guid: 906e3a86854cd434e98cc917869e5ebf,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6594659743919822206, guid: 906e3a86854cd434e98cc917869e5ebf,
         type: 3}
       propertyPath: m_RootOrder
@@ -3493,11 +3504,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1484205459}
     m_Modifications:
+    - target: {fileID: 3143077653626366093, guid: 8960b704132c1374a9da98deb1a2694e,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3143077653646830356, guid: 8960b704132c1374a9da98deb1a2694e,
         type: 3}
       propertyPath: m_Speed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3143077653646830359, guid: 8960b704132c1374a9da98deb1a2694e,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7,
+        type: 3}
     - target: {fileID: 3143077653762736587, guid: 8960b704132c1374a9da98deb1a2694e,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -3590,6 +3612,17 @@ PrefabInstance:
     - target: {fileID: 6708395871527581369, guid: 103b7e0a70cbf004eb87fd1f33bae962,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708395871642344549, guid: 103b7e0a70cbf004eb87fd1f33bae962,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7,
+        type: 3}
+    - target: {fileID: 6708395871663824895, guid: 103b7e0a70cbf004eb87fd1f33bae962,
+        type: 3}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6708395871681116184, guid: 103b7e0a70cbf004eb87fd1f33bae962,
