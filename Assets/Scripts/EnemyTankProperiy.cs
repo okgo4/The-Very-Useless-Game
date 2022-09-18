@@ -46,7 +46,6 @@ public class EnemyTankProperiy : MonoBehaviour
                 time = 0f;
                 Instantiate(deathEffect, this.transform.position, this.transform.rotation);
                 Destroy(gameObject);
-                Destroy(gameObject);
                 GameObject.Find("MainControl").GetComponent<MainControl>().gameScore += score;
                 GameObject.Find("MainControl").GetComponent<MainControl>().refreshCD = 5;
             }   

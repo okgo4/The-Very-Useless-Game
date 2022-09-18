@@ -224,7 +224,10 @@ public class Fire : State
 
     public override void Update()
     {
-        ChaseAndOpenFire();
+        
+        if (agent.GetComponent<EnemyTankProperiy>().health>0){
+            ChaseAndOpenFire();
+        }
         if(IsTooFar())
         {
             nextState = new Chase(oppTank, agent, anim, player);
