@@ -46,7 +46,7 @@ public class ControlTank : MonoBehaviour
     void Start()
     {
         agent = this.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        health = 100;
+        health = 300;
     }
 
     void Update()
@@ -96,7 +96,7 @@ public class ControlTank : MonoBehaviour
         // Iron Buff Counting
         if (ironCount > 0)
         {
-            health = 100;
+            health = 300;
             ironCount -= Time.deltaTime;
         }
         else
@@ -160,7 +160,7 @@ public class ControlTank : MonoBehaviour
                 break;
 
             case "Healing":
-                health = health + 50;
+                health = health + 150;
                 buffSE.clip = healBgm;
                 backgroundMusic.volume = 0.5f;
                 buffSE.Play();

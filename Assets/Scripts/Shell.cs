@@ -38,6 +38,7 @@ public class Shell : MonoBehaviour
     }
     void Update()
     {
+        damage = GameObject.Find("/Tank").gameObject.GetComponent<ControlTank>().damage;
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (CD <= 0)
