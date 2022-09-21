@@ -15,6 +15,7 @@ public class MainControl : MonoBehaviour
     public GameObject Enemy2;
     public GameObject Enemy3;
     public float gameScore;
+    public AudioSource endBgm;
     private bool end = false;
     public float refreshCD = 5;
     void Start()
@@ -54,7 +55,9 @@ public class MainControl : MonoBehaviour
         timeText.GetComponent<TextMeshProUGUI>().text = gameTime.ToString("F2");
         if (gameTime <= 0 && !end)
         {
-            endGame();
+            GameObject.Find("Tank").GetComponent<ControlTank>().backgroundMusic.Stop();
+            endBgm.Play();
+            timesupEnd();
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -72,5 +75,13 @@ public class MainControl : MonoBehaviour
         end = true;
         EndPanel.active = true;
         EndText.GetComponent<TextMeshProUGUI>().text = "Game Over! \n Score: " + gameScore.ToString("F0");
+    }
+
+    public void timesupEnd()
+    {
+        Time.timeScale = 0;
+        end = true;
+        EndPanel.active = true;
+        EndText.GetComponent<TextMeshProUGUI>().text = "Times Up! \n Score: " + gameScore.ToString("F0");
     }
 }
